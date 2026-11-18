@@ -1,0 +1,19 @@
+name: Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  cask:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tap this checkout
+        run: |
+          mkdir -p "$(brew --repository)/Library/Taps/daniel3606"
+          ln -s "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/daniel3606/homebrew-tap"
+      - run: brew style daniel3606/tap
+      # --online downloads the release zip and checks its SHA-256 against the cask.
+      - run: brew audit --cask --online --strict daniel3606/tap/rustyfinder
