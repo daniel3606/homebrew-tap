@@ -1,6 +1,6 @@
 cask "rustyfinder" do
-  version "0.1.0"
-  sha256 "1b4bae4ab90dc04022a95ddda73a154b40761c96a4b7df6e42d10f35135f625d"
+  version "1.0.1"
+  sha256 "e75a82e6ecf671fd9b9897c53de636b5618a02f54f751e984d1cebeb8a6cfb99"
 
   url "https://github.com/daniel3606/rustyfinder/releases/download/v#{version}/RustyFinder-#{version}-macOS-arm64.zip"
   name "RustyFinder"

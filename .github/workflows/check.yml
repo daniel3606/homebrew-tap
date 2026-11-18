@@ -15,5 +15,7 @@ jobs:
           mkdir -p "$(brew --repository)/Library/Taps/daniel3606"
           ln -s "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/daniel3606/homebrew-tap"
       - run: brew style daniel3606/tap
+      # Homebrew loads casks from third-party taps only once they are trusted.
+      - run: brew trust --cask daniel3606/tap/rustyfinder
       # --online downloads the release zip and checks its SHA-256 against the cask.
       - run: brew audit --cask --online --strict daniel3606/tap/rustyfinder
